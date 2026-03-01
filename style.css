@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --bg-dark: #1a1a2e;
+  --bg-medium: #16213e;
+  --bg-panel: #0f3460;
+
+  --accent-primary: #22c55e;
+  --accent-cyan: #0ea5e9;
+  --accent-gold: #f59e0b;
+
+  --text-primary: #e2e8f0;
+  --text-muted: #64748b;
+
+  --border-purple: #533483;
+
+  --font-family: 'Press Start 2P', monospace;
+  --font-size-xs: 8px;
+  --font-size-sm: 10px;
+  --font-size-base: 12px;
+  --font-size-xl: 20px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  background: var(--bg-dark);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 16px;
+  width: 100%;
+  max-width: 480px;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 10px var(--accent-primary),
+      0 0 20px var(--accent-primary),
+      0 0 40px var(--accent-primary);
+  }
+  50% {
+    text-shadow:
+      0 0 5px var(--accent-cyan),
+      0 0 15px var(--accent-cyan),
+      0 0 30px var(--accent-cyan);
+  }
+}
+
+.title-glow {
+  animation: titleGlow 3s ease-in-out infinite;
+  color: var(--accent-primary);
+  font-size: var(--font-size-xl);
+  margin: 0;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin: 0;
+  text-align: center;
+}
+
+.pixel-panel {
+  background: var(--bg-panel);
+  border: 4px solid var(--border-purple);
+  box-shadow:
+    6px 6px 0 rgba(0, 0, 0, 0.5),
+    inset 2px 2px 0 rgba(255, 255, 255, 0.05);
+  padding: 24px;
+  position: relative;
+  width: 100%;
+}
+
+.pixel-panel::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.pixel-panel__title {
+  font-size: var(--font-size-sm);
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed var(--border-purple);
+}
+
+.button-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pixel-btn {
+  display: block;
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  padding: 12px 24px;
+  background: var(--accent-primary);
+  color: var(--text-primary);
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow:
+    4px 4px 0 rgba(0, 0, 0, 0.4),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.2),
+    inset 2px 2px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.pixel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    6px 6px 0 rgba(0, 0, 0, 0.4),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.2),
+    inset 2px 2px 0 rgba(255, 255, 255, 0.15);
+}
+
+.pixel-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    2px 2px 0 rgba(0, 0, 0, 0.4),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.2),
+    inset 2px 2px 0 rgba(255, 255, 255, 0.15);
+}
